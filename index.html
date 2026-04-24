@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Buen Sazón — Authentic Latin Food in Reading, PA</title>
+<meta name="description" content="El Buen Sazón — authentic Dominican-Latin restaurant in Reading, PA. Chicharrón mofongo, tres golpes, fresh juices and more. 5.0 stars on Google.">
+<meta property="og:title" content="El Buen Sazón Restaurant — Reading, PA">
+<meta property="og:description" content="Authentic Dominican-Latin food. 5.0 stars. Free delivery available.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "El Buen Sazón Restaurant",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1029 Chestnut St",
+    "addressLocality": "Reading",
+    "addressRegion": "PA",
+    "postalCode": "19602"
+  },
+  "telephone": "+16107433879",
+  "priceRange": "$10-$20",
+  "servesCuisine": "Latin, Dominican"
+}
+</script>
+
+<style>
+  :root {
+    --wood: #160C05;
+    --wood-lift: #221508;
+    --fire: #D4581A;
+    --fire-deep: #A83E0C;
+    --gold: #F0A830;
+    --gold-soft: #C4852A;
+    --cream: #F5E8D0;
+    --cream-soft: #C9B090;
+    --ink: #F5E8D0;
+    --ink-soft: #C4A880;
+    --rule: #3A2010;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--wood);
+    color: var(--ink);
+    font-family: 'Lora', Georgia, serif;
+    font-size: clamp(1rem, 1.1vw, 1.15rem);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* GRAIN OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* SKIP LINK */
+  .skip { position: absolute; left: -9999px; }
+  .skip:focus { left: 1rem; top: 1rem; z-index: 99999; background: var(--fire); color: var(--cream); padding: 0.5rem 1rem; }
+
+  /* HEADER */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(22, 12, 5, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+  .logo span { color: var(--fire); }
+  .logo small { display: block; font-size: 0.45em; letter-spacing: 0.3em; color: var(--gold); font-family: 'Lora', serif; text-transform: uppercase; }
+
+  nav { display: flex; gap: 2rem; align-items: center; }
+  nav a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    color: var(--cream-soft);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+  nav a:hover { color: var(--fire); }
+
+  .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--cream); border-radius: 2px; transition: all 0.3s; }
+
+  /* MOBILE NAV */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 12, 5, 0.98);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    letter-spacing: 0.1em;
+    color: var(--cream);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+  .mobile-nav a:hover { color: var(--fire); }
+  .mobile-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: var(--cream);
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 0;
+    color: var(--fire);
+    font-size: 1.2rem;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 6vw, 6rem);
+    position: relative;
+  }
+
+  .hero-text { z-index: 1; }
+
+  .eyebrow {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 12vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s cubic-bezier(0.2,0.8,0.2,1) 0.1s forwards;
+  }
+  .hero h1 .fire { color: var(--fire); }
+  .hero h1 .gold { color: var(--gold); }
+
+  .hero p {
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    color: var(--ink-soft);
+    margin-bottom: 2.5rem;
+    max-width: 42ch;
+    opacity: 0;
+    animation: fadeUp 0.8s cubic-bezier(0.2,0.8,0.2,1) 0.3s forwards;
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s cubic-bezier(0.2,0.8,0.2,1) 0.5s forwards;
+  }
+
+  .btn-primary {
+    background: var(--fire);
+    color: var(--cream);
+    padding: 0.9rem 2.2rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.25s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--fire-deep); transform: translateY(-2px); }
+
+  .btn-secondary {
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 0.9rem 2.2rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.25s;
+  }
+  .btn-secondary:hover { background: var(--gold); color: var(--wood); transform: translateY(-2px); }
+
+  .trust-strip {
+    margin-top: 2.5rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+    opacity: 0;
+    animation: fadeUp 0.8s cubic-bezier(0.2,0.8,0.2,1) 0.7s forwards;
+  }
+  .trust-strip strong { color: var(--gold); }
+
+  /* HERO IMAGE */
+  .hero-img {
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.8s cubic-bezier(0.2,0.8,0.2,1) 0.4s forwards;
+  }
+
+  .hero-img-frame {
+    border: 2px solid var(--fire);
+    transform: rotate(1.5deg);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    background: var(--wood-lift);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--wood-lift) 0%, #2A1508 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .flame-icon {
+    font-size: 4rem;
+    line-height: 1;
+  }
+
+  .hero-img-placeholder p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    opacity: 0.6;
+  }
+
+  /* SECTIONS */
+  section { padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 6vw, 6rem); }
+  section:nth-child(even) { background: var(--wood-lift); }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    letter-spacing: 0.05em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .section-title .accent { color: var(--fire); }
+
+  /* STORY */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .pull-quote {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.5vw, 2rem);
+    line-height: 1.4;
+    color: var(--cream);
+    border-left: 3px solid var(--fire);
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .attribution {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
+  .story-text p { color: var(--ink-soft); margin-bottom: 1.2rem; }
+  .story-text p:first-child::first-letter {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.5rem;
+    line-height: 0.8;
+    float: left;
+    margin-right: 0.1em;
+    margin-top: 0.05em;
+    color: var(--fire);
+  }
+
+  /* MENU CARDS */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .menu-card {
+    background: var(--wood-lift);
+    border: 1px solid var(--rule);
+    padding: 2rem;
+    transition: box-shadow 0.3s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  section:nth-child(even) .menu-card { background: var(--wood); }
+
+  .menu-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--fire);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .menu-card:hover { box-shadow: 0 0 40px rgba(212,88,26,0.15); transform: translateY(-4px); }
+  .menu-card:hover::before { transform: scaleX(1); }
+
+  .card-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--fire);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    color: var(--cream);
+  }
+
+  .card-eyebrow {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .menu-items { list-style: none; }
+  .menu-items li {
+    color: var(--ink-soft);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.95rem;
+  }
+  .menu-items li:last-child { border-bottom: none; }
+  .menu-items li::before { content: '— '; color: var(--fire); }
+
+  /* SPECIAL STRIP */
+  .special-strip {
+    background: var(--fire);
+    padding: 4rem clamp(1.5rem, 6vw, 6rem);
+    text-align: center;
+  }
+
+  .special-strip .eyebrow { color: var(--gold); margin-bottom: 1rem; }
+  .special-strip h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    letter-spacing: 0.05em;
+    color: var(--cream);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .special-strip p { color: rgba(245,232,208,0.85); max-width: 50ch; margin: 0 auto 2rem; }
+  .special-strip .btn-secondary { border-color: var(--cream); color: var(--cream); }
+  .special-strip .btn-secondary:hover { background: var(--cream); color: var(--fire); }
+
+  /* TESTIMONIALS */
+  .testimonials { display: flex; flex-direction: column; gap: 3rem; margin-top: 3rem; }
+
+  .testimonial {
+    padding: 2rem;
+    border-left: 3px solid var(--fire);
+    background: var(--wood-lift);
+  }
+
+  .testimonial blockquote {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--cream);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .testimonial cite { font-size: 0.8rem; letter-spacing: 0.2em; color: var(--gold); font-family: 'Bebas Neue', sans-serif; font-style: normal; }
+
+  /* VISIT */
+  .visit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-top: 3rem;
+  }
+
+  .visit-address {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+
+  .visit-phone {
+    display: inline-block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--fire);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    transition: color 0.25s;
+  }
+  .visit-phone:hover { color: var(--gold); }
+
+  .hours-table { width: 100%; border-collapse: collapse; }
+  .hours-table tr { border-bottom: 1px solid var(--rule); }
+  .hours-table td { padding: 0.8rem 0; color: var(--ink-soft); font-size: 0.95rem; }
+  .hours-table td:first-child { color: var(--cream); font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.1em; font-size: 1rem; }
+  .hours-table tr.today td { color: var(--gold); }
+  .hours-table tr.today td:first-child { color: var(--fire); }
+
+  .map-frame {
+    margin-top: 3rem;
+    border: 2px solid var(--rule);
+    overflow: hidden;
+  }
+  .map-frame iframe { width: 100%; height: 350px; border: none; display: block; }
+
+  /* CONTACT */
+  .contact-form { max-width: 640px; margin: 3rem auto 0; }
+
+  .form-group { margin-bottom: 1.5rem; }
+  .form-group label {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.15em;
+    font-size: 0.85rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--rule);
+    padding: 0.75rem 0;
+    color: var(--cream);
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.25s;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--fire); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  /* FOOTER */
+  footer {
+    background: #0E0704;
+    border-top: 1px solid var(--rule);
+    padding: 3rem clamp(1.5rem, 6vw, 6rem);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+  .footer-logo span { color: var(--fire); }
+
+  footer p, footer a { color: var(--ink-soft); font-size: 0.9rem; text-decoration: none; }
+  footer a:hover { color: var(--fire); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-bottom p { font-size: 0.75rem; color: var(--ink-soft); }
+  .footer-credit { font-size: 0.75rem; color: var(--rule); }
+  .footer-credit a { color: var(--rule); text-decoration: none; transition: color 0.25s; }
+  .footer-credit a:hover { color: var(--ink-soft); }
+
+  /* SOCIAL ICONS */
+  .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
+  .social-links a {
+    width: 40px; height: 40px;
+    border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.25s;
+  }
+  .social-links a:hover { border-color: var(--fire); color: var(--fire); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.2,0.8,0.2,1), transform 0.8s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hamburger { display: flex; }
+    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 3rem; }
+    .hero-img { order: -1; }
+    .story-grid, .visit-grid, .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .cta-group { flex-direction: column; }
+    .btn-primary, .btn-secondary { text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to content</a>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Navigation">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="#menu" onclick="closeMobileNav()">Menu</a>
+  <a href="#specials" onclick="closeMobileNav()">Specials</a>
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#visit" onclick="closeMobileNav()">Visit</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact</a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <span>El Buen</span> Sazón
+    <small>Restaurant · Reading, PA</small>
+  </div>
+  <nav aria-label="Main navigation">
+    <a href="#menu">Menu</a>
+    <a href="#specials">Specials</a>
+    <a href="#about">About</a>
+    <a href="#visit">Visit</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">READING · PENNSYLVANIA · COMIDA LATINA</p>
+      <h1>
+        <span class="fire">EL</span><br>
+        BUEN<br>
+        <span class="gold">SAZÓN</span>
+      </h1>
+      <p>Authentic Dominican-Latin food made with fire, flavor, and love — right here in Reading, Pennsylvania.</p>
+      <div class="cta-group">
+        <a href="#menu" class="btn-primary">SEE THE MENU</a>
+        <a href="tel:+16107433879" class="btn-secondary">CALL US</a>
+      </div>
+      <p class="trust-strip"><strong>★ 5.0</strong> · 78 Google reviews · Free delivery available</p>
+    </div>
+    <div class="hero-img">
+      <div class="hero-img-frame">
+        <div class="hero-img-placeholder">
+          <div class="flame-icon">🔥</div>
+          <p><!-- Replace with real food photo --><br>Your real photos go here</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEDNESDAY SPECIAL STRIP -->
+  <div class="special-strip" id="specials">
+    <p class="eyebrow">EVERY WEDNESDAY</p>
+    <h2>ALITAS PICANTE<br>& ALA BBQ</h2>
+    <p>Hot wings or BBQ style — served with tostones, papas, and yuca frita. Don't miss it.</p>
+    <p style="font-family:'Bebas Neue',sans-serif; font-size:3rem; color:var(--cream); letter-spacing:0.05em; margin-bottom:1.5rem;">$10</p>
+    <a href="tel:+16107433879" class="btn-secondary">CALL TO ORDER</a>
+  </div>
+
+  <!-- STORY -->
+  <section id="about">
+    <p class="eyebrow reveal">OUR STORY</p>
+    <h2 class="section-title reveal">MADE WITH <span class="accent">FUEGO</span></h2>
+    <div class="story-grid">
+      <div>
+        <p class="pull-quote">"The food is delicious! Jennifer is the nicest person ever. Highly recommend the chicharrón mofongo and tres golpes."</p>
+        <p class="attribution">— MARINA SABILLÓN, GOOGLE REVIEW</p>
+      </div>
+      <div class="story-text reveal">
+        <p>El Buen Sazón is a family restaurant rooted in the flavors of the Dominican Republic and Latin Caribbean tradition. Every dish is made with real ingredients, real care, and real sazón — that unmistakable seasoning that makes Latin food unlike anything else.</p>
+        <p>Located on Chestnut Street in Reading, PA, we serve breakfast, lunch, and dinner with the warmth of a home kitchen. From our signature chicharrón mofongo to our tres golpes and fresh-squeezed juices, every plate is made to satisfy.</p>
+        <p>Free delivery available. Come hungry, leave happy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <p class="eyebrow reveal">LO QUE SERVIMOS</p>
+    <h2 class="section-title reveal">FROM THE <span class="accent">KITCHEN</span></h2>
+    <div class="menu-grid">
+
+      <div class="menu-card reveal">
+        <div class="card-number">01</div>
+        <p class="card-eyebrow">SIGNATURE DISHES</p>
+        <h3 class="card-title">Dominican Classics</h3>
+        <ul class="menu-items">
+          <li>Chicharrón Mofongo</li>
+          <li>Tres Golpes</li>
+          <li>Arroz con Pollo</li>
+          <li>Chicharrón de Cerdo</li>
+          <li>Mangu</li>
+        </ul>
+      </div>
+
+      <div class="menu-card reveal">
+        <div class="card-number">02</div>
+        <p class="card-eyebrow">EVERY WEDNESDAY</p>
+        <h3 class="card-title">Wing Specials</h3>
+        <ul class="menu-items">
+          <li>Alitas Picante — spicy wings</li>
+          <li>Alitas ALA BBQ — BBQ wings</li>
+          <li>Served with tostones</li>
+          <li>Served with papas fritas</li>
+          <li>Served with yuca frita</li>
+        </ul>
+      </div>
+
+      <div class="menu-card reveal">
+        <div class="card-number">03</div>
+        <p class="card-eyebrow">SIDES & MORE</p>
+        <h3 class="card-title">Acompañantes</h3>
+        <ul class="menu-items">
+          <li>Tostones</li>
+          <li>Papas fritas</li>
+          <li>Yuca frita</li>
+          <li>Arroz blanco</li>
+          <li>Habichuelas guisadas</li>
+        </ul>
+      </div>
+
+      <div class="menu-card reveal">
+        <div class="card-number">04</div>
+        <p class="card-eyebrow">BEBIDAS</p>
+        <h3 class="card-title">Fresh Drinks</h3>
+        <ul class="menu-items">
+          <li>Fresh squeezed juices</li>
+          <li>Jugos naturales</li>
+          <li>Batidas tropicales</li>
+          <li>Seasonal specials</li>
+        </ul>
+      </div>
+
+    </div>
+    <p style="text-align:center; color:var(--ink-soft); font-style:italic; margin-top:2rem; font-size:0.9rem;" class="reveal">Menu changes seasonally. Call us or follow on Instagram for daily specials.</p>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <p class="eyebrow reveal">LO QUE DICEN</p>
+    <h2 class="section-title reveal">WHAT GUESTS <span class="accent">SAY</span></h2>
+    <div class="testimonials">
+      <div class="testimonial reveal">
+        <blockquote>"The best food I've had in such a long time. The place smelled good, fresh, and amazing. The food was so fresh and perfect."</blockquote>
+        <cite>— XIARA CRUZ, GOOGLE REVIEW</cite>
+      </div>
+      <div class="testimonial reveal">
+        <blockquote>"Our party of five traveled from another city and were welcomed with amazing service and great atmosphere. The food was delicious and portions were generous enough to bring some home."</blockquote>
+        <cite>— FRANKIE SAEZ, GOOGLE REVIEW</cite>
+      </div>
+      <div class="testimonial reveal">
+        <blockquote>"Estaba buscando un restaurant Dominicano aquí en Reading PA y me encuentro con este — comida muy buena y el servicio de los empleados 1A."</blockquote>
+        <cite>— GOOGLE REVIEW</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit">
+    <p class="eyebrow reveal">FIND US</p>
+    <h2 class="section-title reveal">COME <span class="accent">HUNGRY</span></h2>
+    <div class="visit-grid">
+      <div class="reveal">
+        <p class="visit-address">1029 Chestnut St<br>Reading, PA 19602</p>
+        <a href="tel:+16107433879" class="visit-phone">610-743-3879</a><br>
+        <a href="tel:+16108000101" class="visit-phone">610-800-0101</a>
+        <br><br>
+        <a href="https://maps.google.com/?q=1029+Chestnut+St+Reading+PA+19602" target="_blank" rel="noopener" class="btn-primary" style="display:inline-block; margin-top:1rem;">GET DIRECTIONS</a>
+        <div class="social-links" style="margin-top:1.5rem;">
+          <a href="https://instagram.com/elbuensazonpa" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        </div>
+        <p style="color:var(--ink-soft); font-size:0.85rem; margin-top:1rem; font-style:italic;">Free delivery available — call to order</p>
+      </div>
+      <div class="reveal">
+        <table class="hours-table" aria-label="Business hours">
+          <tr><td>MONDAY</td><td>10:00 AM – Close</td></tr>
+          <tr><td>TUESDAY</td><td>10:00 AM – Close</td></tr>
+          <tr><td>WEDNESDAY</td><td>10:00 AM – Close</td></tr>
+          <tr><td>THURSDAY</td><td>10:00 AM – Close</td></tr>
+          <tr class="today"><td>FRIDAY</td><td>10:00 AM – Close</td></tr>
+          <tr><td>SATURDAY</td><td>10:00 AM – Close</td></tr>
+          <tr><td>SUNDAY</td><td>Call for hours</td></tr>
+        </table>
+        <p style="color:var(--ink-soft); font-size:0.85rem; margin-top:1.5rem; font-style:italic;">Hours may vary. Follow us on Instagram or call ahead.</p>
+      </div>
+    </div>
+    <div class="map-frame reveal" style="margin-top:3rem;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.5!2d-75.9284!3d40.3357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDIwJzA4LjUiTiA3NcKwNTUnNDIuMyJX!5e0!3m2!1sen!2sus!4v1"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="El Buen Sazón location map"
+        aria-label="Google Maps showing restaurant location">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background:var(--wood-lift);">
+    <p class="eyebrow reveal" style="text-align:center;">GET IN TOUCH</p>
+    <h2 class="section-title reveal" style="text-align:center;">ORDER · <span class="accent">CATERING</span> · QUESTIONS</h2>
+    <form class="contact-form reveal" action="https://formspree.io/f/YOUR_ID" method="POST">
+      <!-- Replace YOUR_ID with actual Formspree endpoint -->
+      <div class="form-group">
+        <label for="name">YOUR NAME</label>
+        <input type="text" id="name" name="name" required autocomplete="name" placeholder="Jennifer Rodriguez">
+      </div>
+      <div class="form-group">
+        <label for="email">EMAIL</label>
+        <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label for="phone">PHONE</label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(610) 000-0000">
+      </div>
+      <div class="form-group">
+        <label for="message">MESSAGE</label>
+        <textarea id="message" name="message" required placeholder="I'd like to place an order / ask about catering..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%; text-align:center; font-size:1.1rem;">SEND MESSAGE</button>
+    </form>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo"><span>El Buen</span> Sazón</div>
+      <p>Authentic Dominican-Latin food.<br>Reading, Pennsylvania.</p>
+    </div>
+    <div>
+      <p style="font-family:'Bebas Neue',sans-serif; letter-spacing:0.1em; color:var(--cream); margin-bottom:0.5rem;">CONTACT</p>
+      <p><a href="tel:+16107433879">610-743-3879</a></p>
+      <p><a href="tel:+16108000101">610-800-0101</a></p>
+      <p><a href="mailto:elbuensazonpa@gmail.com">elbuensazonpa@gmail.com</a></p>
+    </div>
+    <div>
+      <p style="font-family:'Bebas Neue',sans-serif; letter-spacing:0.1em; color:var(--cream); margin-bottom:0.5rem;">ADDRESS</p>
+      <p>1029 Chestnut St<br>Reading, PA 19602</p>
+      <p style="margin-top:0.5rem;"><a href="https://instagram.com/elbuensazonpa" target="_blank" rel="noopener">@elbuensazonpa</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 EL BUEN SAZÓN RESTAURANT · ALL RIGHTS RESERVED</p>
+    <p class="footer-credit">Website by <a href="https://kaiquegotardo.com" target="_blank" rel="noopener">Kaique Gotardo</a> · <a href="https://kaiquegotardo.com" target="_blank" rel="noopener">kaiquegotardo.com</a></p>
+  </div>
+</footer>
+
+<script>
+  // MOBILE NAV
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+
+  hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+  mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+  function closeMobileNav() { mobileNav.classList.remove('open'); }
+
+  // INTERSECTION OBSERVER
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // HEADER BLUR ON SCROLL
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    header.style.background = window.scrollY > 50
+      ? 'rgba(22, 12, 5, 0.97)'
+      : 'rgba(22, 12, 5, 0.92)';
+  });
+</script>
+
+</body>
+</html>
